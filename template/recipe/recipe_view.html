@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>
+
+    <p>Recipe: {{recipe_objs.name}}</p>
+    <p>Cuisine: {{recipe_objs.cuisine}}</p>
+    <p>Time: {{recipe_objs.time_hours}} hr {{recipe_objs.time_min}}min</p>
+    <p>Ingrdients: {{recipe_objs.ingredients}}</p>
+    <p>Method: {{recipe_objs.method}}</p>
+    <p>Author: {{recipe_objs.author}}</p>
+    {% if recipe_objs.author == request.user %}
+                <button onclick="location.href = '/recipe_delete/{{recipe_objs.id}}';"> Delete </button>
+                <button onclick="location.href = '/recipe_edit/{{recipe_objs.id}}';"> Edit </button>
+    {% endif %}
+
+</p>
+{% endblock %}
